@@ -1,6 +1,15 @@
 # Config local de Claude
 .claude/
 
+# SECRETOS — NUNCA subir (repo es público)
+github-recovery-codes.txt
+*recovery-codes*
+*recovery*
+*.secret
+*.key
+secrets*
+.env
+
 # Variantes de diseño (solo locales, no se publican)
 itexia-web/itexia_arena.html
 itexia-web/itexia_v4.html
