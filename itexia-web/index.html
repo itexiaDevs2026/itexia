@@ -163,6 +163,7 @@ nav.scrolled{
 .c-meta-row a{color:var(--cyan);text-decoration:none}
 
 .c-form{display:flex;flex-direction:column;gap:2rem;padding-top:0.5rem}
+.hp-wrap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .f-row{display:flex;flex-direction:column;gap:0.5rem}
 .f-row label{font-size:0.9rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim)}
 .f-row input,.f-row textarea{
@@ -252,6 +253,8 @@ footer{
     </div>
   </div>
   <form class="c-form reveal" id="contact-form" action="https://formspree.io/f/XXXXXXXX" method="POST">
+    <div class="hp-wrap" aria-hidden="true"><label>Deja este campo vacío</label><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+    <input type="hidden" name="_subject" value="Nuevo contacto desde itexia.es">
     <div class="f-row"><label for="nombre">Nombre</label><input id="nombre" type="text" name="nombre" placeholder="Tu nombre" required></div>
     <div class="f-row"><label for="email">Email</label><input id="email" type="email" name="email" placeholder="tu@email.com" required></div>
     <div class="f-row"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" placeholder="En qué podemos ayudarte..." required></textarea></div>
@@ -279,8 +282,18 @@ onScroll();
 const form=document.getElementById('contact-form');
 const btn=form.querySelector('.f-btn');
 const status=document.getElementById('f-status');
+const formLoaded=Date.now();
 form.addEventListener('submit',async e=>{
   e.preventDefault();
+  // Anti-bot: honeypot relleno o envío demasiado rápido (<2s) → descartar en silencio
+  const trap=form.querySelector('[name="_gotcha"]');
+  if((trap&&trap.value)||(Date.now()-formLoaded)<2000){
+    form.reset();
+    status.classList.add('visible');
+    btn.textContent='Enviado';
+    btn.disabled=true;
+    return;
+  }
   btn.disabled=true;
   btn.textContent='Enviando...';
   try{
