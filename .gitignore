@@ -1,0 +1,9 @@
+# Config local de Claude
+.claude/
+
+# Variantes de diseño (solo locales, no se publican)
+itexia-web/itexia_arena.html
+itexia-web/itexia_v4.html
+itexia-web/itexia_verde.html
+itexia-web/itexia_violeta.html
+itexia-web/itexia_contexto_claudecode_v2.md

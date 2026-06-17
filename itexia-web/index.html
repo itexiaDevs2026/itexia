@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iTEXIA — Soluciones IT personalizadas</title>
+<meta name="description" content="Software a medida para empresas que no quieren soluciones genéricas. Desarrollo Java, integraciones, IA aplicada y consultoría IT en Extremadura.">
+<meta name="keywords" content="software a medida, desarrollo Java, Spring Boot, integraciones API, IA aplicada, consultoría IT, Extremadura, iTEXIA">
+<meta name="author" content="iTEXIA">
+<meta property="og:title" content="iTEXIA — Soluciones IT personalizadas">
+<meta property="og:description" content="Software a medida para empresas que no quieren soluciones genéricas.">
+<meta property="og:url" content="https://itexia.es">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iTEXIA — Soluciones IT personalizadas">
+<meta name="twitter:description" content="Software a medida para empresas que no quieren soluciones genéricas.">
+<link rel="canonical" href="https://itexia.es">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,700;1,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f1a0f;
+  --cyan:#86d086;
+  --violet:#a888d0;
+  --white:#eef7ee;
+  --dim:#7a9e7a;
+  --mono:'Space Mono',monospace;
+  --serif:'Instrument Serif',serif;
+  --gutter:max(3rem,calc((100% - 1180px) / 2));
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--mono);overflow-x:hidden;min-height:100vh}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.6rem var(--gutter);
+  background:transparent;
+  border-bottom:1px solid transparent;
+  transition:background .3s ease,border-color .3s ease,padding .3s ease,backdrop-filter .3s ease;
+}
+nav.scrolled{
+  background:rgba(15,26,15,0.72);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(232,245,232,0.08);
+  padding:1.1rem var(--gutter);
+}
+.logo{font-family:var(--mono);font-size:1.65rem;font-weight:700;text-decoration:none;letter-spacing:-0.02em;color:var(--white)}
+.logo .i{color:var(--cyan);font-style:italic}
+.logo .ia{color:var(--violet)}
+.nav-contact{
+  font-size:0.86rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--dim);text-decoration:none;transition:color .2s;
+}
+.nav-contact:hover{color:var(--white)}
+
+/* HERO */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  justify-content:center;padding:8rem var(--gutter) 4rem;
+  position:relative;overflow:hidden;
+}
+.hero-glow{
+  position:absolute;top:42%;left:38%;
+  transform:translate(-50%,-50%);
+  width:800px;height:800px;
+  background:radial-gradient(ellipse,rgba(134,208,134,0.08) 0%,transparent 62%);
+  pointer-events:none;
+}
+.hero-label{
+  font-size:1rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--dim);margin-bottom:2.5rem;
+}
+.hero-title{
+  font-family:var(--serif);
+  font-size:clamp(4rem,9vw,8.5rem);
+  line-height:1.02;
+  font-weight:400;
+  max-width:950px;
+  margin-bottom:3.5rem;
+}
+.hero-title em{font-style:italic;color:var(--cyan)}
+.hero-title .mark{color:var(--violet)}
+.hero-sub{
+  font-size:clamp(1.15rem,1.9vw,1.4rem);
+  line-height:1.6;color:var(--dim);
+  max-width:560px;margin-bottom:3.5rem;
+}
+.hero-cta{
+  position:relative;display:inline-flex;align-items:center;gap:0.9rem;
+  font-family:var(--mono);font-size:0.78rem;font-weight:700;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--white);background:transparent;
+  border:1px solid var(--cyan);border-radius:999px;
+  padding:1.05rem 2.4rem;text-decoration:none;overflow:hidden;
+  transition:color .35s ease;
+  isolation:isolate;
+}
+.hero-cta::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:var(--cyan);
+  transform:translateX(-101%);
+  transition:transform .4s cubic-bezier(.6,.05,.2,1);
+}
+.hero-cta:hover{color:var(--bg)}
+.hero-cta:hover::before{transform:translateX(0)}
+.hero-cta .arrow{
+  display:inline-block;
+  transition:transform .35s cubic-bezier(.6,.05,.2,1);
+}
+.hero-cta:hover .arrow{transform:translateX(5px)}
+
+/* SERVICIOS */
+.servicios{
+  padding:6rem var(--gutter);
+  border-top:1px solid rgba(232,245,232,0.06);
+}
+.s-intro{
+  display:flex;align-items:baseline;justify-content:space-between;
+  margin-bottom:4rem;flex-wrap:wrap;gap:1rem;
+}
+.s-intro-label{font-size:1rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--cyan)}
+.s-intro-desc{font-size:1.15rem;color:var(--dim);max-width:440px;line-height:1.6;text-align:right}
+
+.sv{display:flex;flex-direction:column}
+.sv-row{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding:1.7rem 0;
+  border-bottom:1px solid rgba(232,245,232,0.07);
+  gap:2rem;
+  transition:opacity .2s;
+}
+.sv:hover .sv-row{opacity:0.35}
+.sv:hover .sv-row:hover{opacity:1}
+.sv-row-name{
+  font-family:var(--serif);font-style:italic;
+  font-size:clamp(1.7rem,3.4vw,2.5rem);
+  color:var(--white);
+}
+.sv-row-tech{
+  font-size:1rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--dim);white-space:nowrap;
+}
+
+/* CONTACTO */
+.contacto{
+  padding:6rem var(--gutter) 8rem;
+  border-top:1px solid rgba(232,245,232,0.06);
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;
+}
+.c-left-title{
+  font-family:var(--serif);
+  font-size:clamp(2.5rem,5vw,4rem);
+  line-height:1.1;margin-bottom:2rem;font-weight:400;
+}
+.c-left-title em{font-style:italic;color:var(--cyan)}
+.c-meta{display:flex;flex-direction:column;gap:0.9rem;margin-top:3rem}
+.c-meta-row{font-size:1rem;color:var(--dim);letter-spacing:0.06em}
+.c-meta-row a{color:var(--cyan);text-decoration:none}
+
+.c-form{display:flex;flex-direction:column;gap:2rem;padding-top:0.5rem}
+.f-row{display:flex;flex-direction:column;gap:0.5rem}
+.f-row label{font-size:0.9rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim)}
+.f-row input,.f-row textarea{
+  background:transparent;border:none;border-bottom:1px solid rgba(232,245,232,0.12);
+  outline:none;color:var(--white);font-family:var(--mono);font-size:0.92rem;
+  padding:0.6rem 0;resize:none;transition:border-color .2s;
+}
+.f-row input:focus,.f-row textarea:focus{border-bottom-color:rgba(232,245,232,0.3)}
+.f-row textarea{min-height:80px}
+.f-btn{
+  align-self:flex-start;
+  background:transparent;border:1px solid rgba(232,245,232,0.2);
+  color:var(--white);font-family:var(--mono);font-size:0.74rem;font-weight:700;
+  letter-spacing:0.14em;text-transform:uppercase;
+  padding:0.95rem 2.2rem;cursor:pointer;
+  transition:border-color .2s,color .2s;
+}
+.f-btn:hover{border-color:var(--white)}
+.f-btn:disabled{opacity:0.5;cursor:not-allowed}
+.f-status{font-size:0.62rem;letter-spacing:0.1em;color:var(--cyan);display:none}
+.f-status.visible{display:block}
+
+/* FOOTER */
+footer{
+  border-top:1px solid rgba(232,245,232,0.06);
+  padding:1.5rem var(--gutter);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.f-copy{font-size:0.8rem;color:var(--dim);letter-spacing:0.08em}
+.f-domain{font-size:0.82rem;color:var(--dim);letter-spacing:0.1em}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  nav{padding:1.5rem}
+  .hero,.servicios{padding-left:1.5rem;padding-right:1.5rem}
+  .contacto{grid-template-columns:1fr;gap:3rem;padding:4rem 1.5rem 6rem}
+  .s-intro{flex-direction:column}
+  .s-intro-desc{text-align:left}
+  footer{padding:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo"><span class="i">i</span>TEX<span class="ia">IA</span></a>
+  <a href="#contacto" class="nav-contact">Contacto</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-label">Soluciones IT personalizadas · itexia.es</div>
+  <h1 class="hero-title">
+    Software <em>a medida</em><br>
+    que <span class="mark">resuelve.</span>
+  </h1>
+  <p class="hero-sub">Tecnología hecha para tu empresa. Sin soluciones genéricas.</p>
+  <a href="#contacto" class="hero-cta">Iniciar proyecto <span class="arrow">→</span></a>
+</section>
+
+<!-- SERVICIOS -->
+<section class="servicios" id="servicios">
+  <div class="s-intro reveal">
+    <span class="s-intro-label">Servicios</span>
+    <p class="s-intro-desc">Resolvemos problemas tecnológicos concretos. Sin ruido, sin intermediarios.</p>
+  </div>
+  <div class="sv reveal">
+    <div class="sv-row"><span class="sv-row-name">Desarrollo a medida</span><span class="sv-row-tech">Java · Spring Boot</span></div>
+    <div class="sv-row"><span class="sv-row-name">Integraciones y APIs</span><span class="sv-row-tech">REST · SOAP · MQ</span></div>
+    <div class="sv-row"><span class="sv-row-name">IA aplicada</span><span class="sv-row-tech">LLM · ML · NLP</span></div>
+    <div class="sv-row"><span class="sv-row-name">Microservicios</span><span class="sv-row-tech">Docker · Kubernetes</span></div>
+    <div class="sv-row"><span class="sv-row-name">Consultoría IT</span><span class="sv-row-tech">Auditoría · Roadmap</span></div>
+    <div class="sv-row"><span class="sv-row-name">Soporte y evolución</span><span class="sv-row-tech">Mantenimiento · SLA</span></div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contacto" id="contacto">
+  <div class="reveal">
+    <h2 class="c-left-title">Cuéntanos <em>tu proyecto</em></h2>
+    <div class="c-meta">
+      <div class="c-meta-row">Web — <a href="https://itexia.es">itexia.es</a></div>
+      <div class="c-meta-row">Email — <a href="mailto:info@itexia.es">info@itexia.es</a></div>
+    </div>
+  </div>
+  <form class="c-form reveal" id="contact-form" action="https://formspree.io/f/XXXXXXXX" method="POST">
+    <div class="f-row"><label for="nombre">Nombre</label><input id="nombre" type="text" name="nombre" placeholder="Tu nombre" required></div>
+    <div class="f-row"><label for="email">Email</label><input id="email" type="email" name="email" placeholder="tu@email.com" required></div>
+    <div class="f-row"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" placeholder="En qué podemos ayudarte..." required></textarea></div>
+    <button class="f-btn" type="submit">Enviar →</button>
+    <p class="f-status" id="f-status">Mensaje enviado. Te respondemos pronto.</p>
+  </form>
+</section>
+
+<footer>
+  <span class="f-copy">© 2026 iTEXIA</span>
+  <span class="f-domain">itexia.es</span>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+const navEl=document.querySelector('nav');
+const onScroll=()=>navEl.classList.toggle('scrolled',window.scrollY>20);
+window.addEventListener('scroll',onScroll,{passive:true});
+onScroll();
+
+const form=document.getElementById('contact-form');
+const btn=form.querySelector('.f-btn');
+const status=document.getElementById('f-status');
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  btn.disabled=true;
+  btn.textContent='Enviando...';
+  try{
+    const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+    if(res.ok){
+      form.reset();
+      status.classList.add('visible');
+      btn.textContent='Enviado';
+    }else{
+      btn.disabled=false;
+      btn.textContent='Enviar →';
+      alert('Error al enviar. Escríbenos a info@itexia.es');
+    }
+  }catch{
+    btn.disabled=false;
+    btn.textContent='Enviar →';
+    alert('Error de red. Escríbenos a info@itexia.es');
+  }
+});
+</script>
+</body>
+</html>
